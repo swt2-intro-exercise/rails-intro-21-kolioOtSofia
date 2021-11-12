@@ -13,4 +13,14 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+
+  it "adds a new author in the DB when form is submitted", type: :feature do
+    visit new_author_path
+    initialCount = Author.count
+    page.fill_in 'author[first_name]', with: 'Edgar'
+    page.fill_in 'author[last_name]', with: 'Poe'
+    page.fill_in 'author[homepage]', with: 'idk dude'
+    find('input[type="submit"]').click
+    expect(Author.count).to be(initialCount + 1)
+  end
 end
