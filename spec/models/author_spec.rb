@@ -12,4 +12,11 @@ describe "Author model", type: :model do
         expect(author.name).to eq("Alan Turing")
     end
 
+    it "tests validation for last name" do
+        author = Author.new
+        author.first_name = "Test"
+        author.homepage = "TestHomepage"
+        expect(author).to_not be_valid
+    end
+
 end
