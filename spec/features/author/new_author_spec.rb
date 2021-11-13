@@ -23,4 +23,12 @@ describe "New author page", type: :feature do
     find('input[type="submit"]').click
     expect(Author.count).to be(initialCount + 1)
   end
+
+  it "should trigger validation and show error message when form is not valid", type: :feature do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'Edgar'
+    page.fill_in 'author[homepage]', with: 'idk dude'
+    find('input[type="submit"]').click
+    expect(page).to have_text("prohibited this author from being saved")
+  end
 end
