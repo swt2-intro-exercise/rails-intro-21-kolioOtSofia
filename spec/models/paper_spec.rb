@@ -10,6 +10,8 @@ RSpec.describe Paper, type: :model do
     expect(paper).to_not be_valid
     paper.venue = "idk dude"
     expect(paper).to_not be_valid
+    paper.year = "idk dude"
+    expect(paper).to_not be_valid
     paper.year = 2004
     expect(paper).to be_valid
   end
