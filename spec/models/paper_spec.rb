@@ -15,4 +15,11 @@ RSpec.describe Paper, type: :model do
     paper.year = 2004
     expect(paper).to be_valid
   end
+
+  it "creates a paper with authors" do
+    paper = Paper.new
+    expect(paper.authors).to be_empty
+    paper.authors.append(Author.new)
+    expect(paper.authors).to_not be_empty
+  end
 end
