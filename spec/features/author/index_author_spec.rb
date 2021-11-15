@@ -7,6 +7,8 @@ describe "Show all authors page", type: :feature do
         expect(page).to have_text("Alan Turing")
         expect(page).to have_text("http://wikipedia.de/Alan_Turing")
         expect(page).to have_link 'New', href: new_author_path
-        expect(page).to have_link 'Edit', href: edit_author_url(@alan)
+        expect(page).to have_link 'Edit', href: edit_author_path(@alan)
+        #visit edit_author_url(@alan)
+        #expect(page).to have_text("")
     end
 end
