@@ -17,6 +17,8 @@ gem 'mini_racer', platforms: :ruby # https://github.com/rubyjs/mini_racer
 gem 'bootsnap', '>= 1.1.0', require: false # https://github.com/Shopify/bootsnap
 # Turbolinks makes navigating your web application faster
 gem 'turbolinks', '~> 5' # https://github.com/turbolinks/turbolinks
+gem "table_print"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -27,6 +29,7 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
   # State of the art fixtures
   gem 'factory_bot_rails', '~> 6.1' # https://github.com/thoughtbot/factory_bot_rails
+  gem 'solargraph'
 end
 
 group :development do
