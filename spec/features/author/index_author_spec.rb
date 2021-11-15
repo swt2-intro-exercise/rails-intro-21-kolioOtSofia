@@ -11,4 +11,12 @@ describe "Show all authors page", type: :feature do
         #visit edit_author_url(@alan)
         #expect(page).to have_text("")
     end
+
+    it "should delete an entry" do
+        @alan = FactoryBot.create :author
+        visit authors_url
+        expect(page).to have_link 'Delete'
+        @alan.destroy
+        expect(Author.count).to be(0)
+    end
 end
